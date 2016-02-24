@@ -1,0 +1,21 @@
+; Google Apps MX Records
+; Configure domain's mail exchangers (MX)
+; aspmx.l.google.com should have the highest priority
+@    3600    IN    MX    1     ASPMX.L.GOOGLE.COM
+@    3600    IN    MX    5     ALT1.ASPMX.L.GOOGLE.COM
+@    3600    IN    MX    5     ALT2.ASPMX.L.GOOGLE.COM
+@    3600    IN    MX    10    ALT3.ASPMX.L.GOOGLE.COM
+@    3600    IN    MX    10    ALT4.ASPMX.L.GOOGLE.COM
+
+; Configure custom subdomains - allow access to webmail using
+; http://mail.example.com instead of http://www.google.com/a/example.com
+mail      3600    IN    CNAME  ghs.google.com.
+calendar  3600    IN    CNAME  ghs.google.com.
+docs      3600    IN    CNAME  ghs.google.com.
+
+; Include Google Apps SPF configuration
+@     TXT     "v=spf1 include:_spf.google.com ~all"
+
+; Google site verification, optional
+; @        3600    IN    TXT   "google-site-verification=YOUR_VERIFICATION_KEY"
+
